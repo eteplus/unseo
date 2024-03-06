@@ -34,7 +34,9 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "lint": "eslint ."
+    "prepack": "pnpm build",
+    "lint": "eslint .",
+    "release": "changelogen --release --no-commit --no-tag"
   },
   "keywords": [
     "seo",
@@ -55,6 +57,7 @@
     "@types/node": "^20.11.24",
     "@typescript-eslint/parser": "^7.1.1",
     "astro": "^4.4.12",
+    "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^0.31.4",
     "unbuild": "^2.0.0"
