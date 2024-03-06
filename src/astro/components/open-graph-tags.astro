@@ -1,0 +1,200 @@
+---
+import type { OpenGraphMetadata } from '../../types';
+import OpenGraphProfileTags from './open-graph-profile-tags.astro';
+import OpenGraphBookTags from './open-graph-book-tags.astro';
+import OpenGraphArticleTags from './open-graph-article-tags.astro';
+import OpenGraphMusicSongTags from './open-graph-music-song-tags.astro';
+import OpenGraphMusicAlbumTags from './open-graph-music-album-tags.astro';
+import OpenGraphMusicPlaylistTags from './open-graph-music-playlist-tags.astro';
+import OpenGraphMusicRadioStationTags from './open-graph-music-radio-station-tags.astro';
+import OpenGraphVideoMovieTags from './open-graph-video-movie-tags.astro';
+import OpenGraphVideoEpisodeTags from './open-graph-video-episode-tags.astro';
+
+export type Props = OpenGraphMetadata;
+
+const {
+  title,
+  description,
+  type,
+  url,
+  siteName,
+  determiner,
+  locale,
+  images,
+  videos,
+  audios,
+  profile,
+  book,
+  article,
+  music,
+  video,
+} = Astro.props;
+---
+
+{
+  title && (
+    <meta
+      property="og:title"
+      content={title}
+    />
+  )
+}
+{
+  description && (
+    <meta
+      property="og:description"
+      content={description}
+    />
+  )
+}
+{
+  type && (
+    <meta
+      property="og:type"
+      content={type}
+    />
+  )
+}
+{
+  url && (
+    <meta
+      property="og:url"
+      content={url}
+    />
+  )
+}
+{
+  siteName && (
+    <meta
+      property="og:site_name"
+      content={siteName}
+    />
+  )
+}
+{
+  determiner && (
+    <meta
+      property="og:determiner"
+      content={determiner}
+    />
+  )
+}
+{
+  images && images.map(image => (
+    <Fragment>
+      <meta
+        property="og:image"
+        content={image.url}
+      />
+      <meta
+        property="og:image:alt"
+        content={image.alt}
+      />
+      {image.secureUrl && (
+        <meta
+          property="og:image:secure_url"
+          content={image.secureUrl}
+        />
+      )}
+      {image.type && (
+        <meta
+          property="og:image:type"
+          content={image.type}
+        />
+      )}
+      {image.width && (
+        <meta
+          property="og:image:width"
+          content={image.width.toString()}
+        />
+      )}
+      {image.height && (
+        <meta
+          property="og:image:height"
+          content={image.height.toString()}
+        />
+      )}
+    </Fragment>
+  ))
+}
+{
+  videos && videos.map(video => (
+    <Fragment>
+      <meta
+        property="og:video"
+        content={video.url}
+      />
+      {video.secureUrl && (
+        <meta
+          property="og:video:secure_url"
+          content={video.secureUrl}
+        />
+      )}
+      {video.type && (
+        <meta
+          property="og:video:type"
+          content={video.type}
+        />
+      )}
+      {video.width && (
+        <meta
+          property="og:video:width"
+          content={video.width.toString()}
+        />
+      )}
+      {video.height && (
+        <meta
+          property="og:video:height"
+          content={video.height.toString()}
+        />
+      )}
+    </Fragment>
+  ))
+}
+{
+  audios && audios.map(audio => (
+    <Fragment>
+      <meta
+        property="og:audio"
+        content={audio.url}
+      />
+      {audio.secureUrl && (
+        <meta
+          property="og:audio:secure_url"
+          content={audio.secureUrl}
+        />
+      )}
+      {audio.type && (
+        <meta
+          property="og:audio:type"
+          content={audio.type}
+        />
+      )}
+    </Fragment>
+  ))
+}
+{
+  locale?.default && (
+    <meta
+      property="og:locale"
+      content={locale.default}
+    />
+  )
+}
+{
+  locale?.alternates && locale.alternates.map(alternate => (
+    <meta
+      property="og:locale:alternate"
+      content={alternate}
+    />
+  ))
+}
+{type === 'profile' && profile && <OpenGraphProfileTags {...profile} />}
+{type === 'book' && book && <OpenGraphBookTags {...book} />}
+{type === 'article' && article && <OpenGraphArticleTags {...article} />}
+{type === 'music.song' && music && <OpenGraphMusicSongTags {...music} />}
+{type === 'music.album' && music && <OpenGraphMusicAlbumTags {...music} />}
+{type === 'music.playlist' && music && <OpenGraphMusicPlaylistTags {...music} />}
+{type === 'music.radio_station' && music && <OpenGraphMusicRadioStationTags {...music} />}
+{type === 'video.episode' && video && <OpenGraphVideoEpisodeTags {...video} />}
+{['video.movie', 'video.tv_show', 'video.other'].includes(type) && video && <OpenGraphVideoMovieTags {...video} />}

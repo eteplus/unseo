@@ -1,0 +1,15 @@
+---
+import type { LinkTag } from '../../types';
+
+export type Props = LinkTag;
+
+const { crossorigin, ...attributes } = Astro.props;
+const crossOrigin = crossorigin !== undefined && ['anonymous', 'use-credentials', ''].includes(crossorigin)
+  ? crossorigin
+  : undefined;
+---
+
+<link
+  {...attributes}
+  crossorigin={crossOrigin}
+/>

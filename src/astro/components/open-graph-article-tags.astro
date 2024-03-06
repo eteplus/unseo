@@ -1,0 +1,56 @@
+---
+import type { OpenGraphArticleMetadata } from '../../types';
+
+export type Props = OpenGraphArticleMetadata;
+
+const { authors, section, tags, publishedTime, modifiedTime, expirationTime } = Astro.props;
+---
+
+{
+  authors && authors.map(author => (
+    <meta
+      property="article:author"
+      content={author}
+    />
+  ))
+}
+{
+  section && (
+    <meta
+      property="article:section"
+      content={section}
+    />
+  )
+}
+{
+  tags && tags.map(tag => (
+    <meta
+      property="article:tag"
+      content={tag}
+    />
+  ))
+}
+{
+  publishedTime && (
+    <meta
+      property="article:published_time"
+      content={publishedTime}
+    />
+  )
+}
+{
+  modifiedTime && (
+    <meta
+      property="article:modified_time"
+      content={modifiedTime}
+    />
+  )
+}
+{
+  expirationTime && (
+    <meta
+      property="article:expiration_time"
+      content={expirationTime}
+    />
+  )
+}

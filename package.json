@@ -1,0 +1,63 @@
+{
+  "name": "unseo",
+  "version": "0.0.1",
+  "author": "Eleven <eteplus@outlook.com>",
+  "description": "Easily add SEO-boosting tags and metadata to your app",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./astro": {
+      "types": "./dist/astro/index.d.ts",
+      "import": "./dist/astro/index.mjs",
+      "require": "./dist/astro/index.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.mjs",
+      "require": "./dist/utils/index.cjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "seo",
+    "astro"
+  ],
+  "homepage": "https://github.com/eteplus/unseo#readme",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eteplus/unseo.git"
+  },
+  "packageManager": "pnpm@8.15.4",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.6.3",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/parser": "^7.1.1",
+    "astro": "^4.4.12",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "unbuild": "^2.0.0"
+  },
+  "license": "MIT"
+}

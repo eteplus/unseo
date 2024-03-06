@@ -1,0 +1,97 @@
+---
+import { generatePageTitle, generateRobotsContent } from '../../utils';
+import type { SEOProps } from '../../types';
+import OpenGraphTags from './open-graph-tags.astro';
+import TwitterTags from './twitter-tags.astro';
+import ExtendedMetaTag from './extended-meta-tag.astro';
+import ExtendedLinkTag from './extended-link-tag.astro';
+
+export type Props = SEOProps;
+
+const {
+  description,
+  canonical,
+  keywords,
+  mobileAlternate,
+  languageAlternates,
+  openGraph,
+  twitter,
+  facebook,
+  meta,
+  link,
+} = Astro.props;
+const title = generatePageTitle(Astro.props);
+const robots = generateRobotsContent(Astro.props.robots);
+---
+
+{title && <title>{title}</title>}
+{
+  title && (
+    <meta
+      name="title"
+      content={title}
+    />
+  )
+}
+{
+  description && (
+    <meta
+      name="description"
+      content={description}
+    />
+  )
+}
+{
+  keywords && (
+    <meta
+      name="keywords"
+      content={keywords.join(',')}
+    />
+  )
+}
+{
+  canonical && (
+    <link
+      rel="canonical"
+      href={canonical}
+    />
+  )
+}
+{
+  robots && (
+    <meta
+      name="robots"
+      content={robots}
+    />
+  )
+}
+{openGraph && <OpenGraphTags {...openGraph} />}
+{twitter && <TwitterTags {...twitter} />}
+{
+  facebook && (
+    <meta
+      property="fb:app_id"
+      content={facebook.appId}
+    />
+  )
+}
+{
+  mobileAlternate && (
+    <link
+      rel="alternate"
+      media={mobileAlternate.media}
+      href={mobileAlternate.href}
+    />
+  )
+}
+{
+  languageAlternates && languageAlternates.map(alternate => (
+    <link
+      rel="alternate"
+      hreflang={alternate.hreflang}
+      href={alternate.href}
+    />
+  ))
+}
+{meta && meta?.map?.(attributes => <ExtendedMetaTag {...attributes} />)}
+{link && link?.map?.(attributes => <ExtendedLinkTag {...attributes} />)}

@@ -1,0 +1,36 @@
+---
+import type { MetaTag } from '../../types';
+
+export type Props = MetaTag;
+
+const meta = Astro.props;
+
+const isHTML5MetaTag = 'name' in meta;
+const isRDFaMetaTag = 'property' in meta;
+const isHTTPEquivMetaTag = 'httpEquiv' in meta;
+---
+
+{
+  isHTML5MetaTag && (
+    <meta
+      name={meta.name}
+      content={meta.content}
+    />
+  )
+}
+{
+  isRDFaMetaTag && (
+    <meta
+      property={meta.property}
+      content={meta.content}
+    />
+  )
+}
+{
+  isHTTPEquivMetaTag && (
+    <meta
+      http-equiv={meta.httpEquiv}
+      content={meta.content}
+    />
+  )
+}

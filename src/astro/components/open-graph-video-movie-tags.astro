@@ -1,0 +1,64 @@
+---
+import type { OpenGraphVideoMovieMetadata } from '../../types';
+
+export type Props = OpenGraphVideoMovieMetadata;
+
+const { actors, directors, writers, duration, releaseDate, tags } = Astro.props;
+---
+
+{
+  actors && actors.map(actor => (
+    <Fragment>
+      <meta
+        property="video:actor"
+        content={actor.name}
+      />
+      {actor.role && (
+        <meta
+          property="video:actor:role"
+          content={actor.role}
+        />
+      )}
+    </Fragment>
+  ))
+}
+{
+  directors && directors.map(director => (
+    <meta
+      property="video:director"
+      content={director}
+    />
+  ))
+}
+{
+  writers && writers.map(writer => (
+    <meta
+      property="video:director"
+      content={writer}
+    />
+  ))
+}
+{
+  duration && (
+    <meta
+      property="video:duration"
+      content={duration.toString()}
+    />
+  )
+}
+{
+  releaseDate && (
+    <meta
+      property="video:release_date"
+      content={releaseDate}
+    />
+  )
+}
+{
+  tags && tags.map(tag => (
+    <meta
+      property="video:tag"
+      content={tag}
+    />
+  ))
+}

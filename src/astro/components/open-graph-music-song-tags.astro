@@ -1,0 +1,48 @@
+---
+import type { OpenGraphMusicSongMetadata } from '../../types';
+
+export type Props = OpenGraphMusicSongMetadata;
+
+const { duration, album, albumDisc, albumTrack, musicians } = Astro.props;
+---
+
+{
+  duration && (
+    <meta
+      property="music:duration"
+      content={duration.toString()}
+    />
+  )
+}
+{
+  album && (
+    <meta
+      property="music:album"
+      content={album}
+    />
+  )
+}
+{
+  albumDisc && (
+    <meta
+      property="music:album:disc"
+      content={albumDisc.toString()}
+    />
+  )
+}
+{
+  albumTrack && (
+    <meta
+      property="music:album:track"
+      content={albumTrack.toString()}
+    />
+  )
+}
+{
+  musicians && musicians.map(musician => (
+    <meta
+      property="music:musician"
+      content={musician}
+    />
+  ))
+}

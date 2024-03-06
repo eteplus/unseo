@@ -1,0 +1,16 @@
+---
+import type { OpenGraphMusicRadioStationMetadata } from '../../types';
+
+export type Props = OpenGraphMusicRadioStationMetadata;
+
+const { creator } = Astro.props;
+---
+
+{
+  creator && (
+    <meta
+      property="music:creator"
+      content={creator}
+    />
+  )
+}

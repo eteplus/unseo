@@ -1,0 +1,38 @@
+---
+import type { OpenGraphMusicPlaylistMetadata } from '../../types';
+
+export type Props = OpenGraphMusicPlaylistMetadata;
+
+const { songs, creator } = Astro.props;
+---
+
+{
+  songs && songs.map(song => (
+    <Fragment>
+      <meta
+        property="music:song"
+        content={song.url}
+      />
+      {song.disc && (
+        <meta
+          property="music:song:disc"
+          content={song.disc.toString()}
+        />
+      )}
+      {song.track && (
+        <meta
+          property="music:song:track"
+          content={song.track.toString()}
+        />
+      )}
+    </Fragment>
+  ))
+}
+{
+  creator && (
+    <meta
+      property="music:creator"
+      content={creator}
+    />
+  )
+}
