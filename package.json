@@ -40,7 +40,8 @@
   },
   "keywords": [
     "seo",
-    "astro"
+    "astro",
+    "astro-component"
   ],
   "homepage": "https://github.com/eteplus/unseo#readme",
   "sideEffects": false,
