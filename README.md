@@ -1,6 +1,6 @@
 # unseo
 
-[![npm version][npm-version-src]][npm-version-href]
+[![npm](https://img.shields.io/npm/v/unseo.svg)](https://www.npmjs.com/package/unseo)
 
 > Easily add SEO-boosting tags and metadata to your app
 
