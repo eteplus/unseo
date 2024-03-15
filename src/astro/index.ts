@@ -13,12 +13,12 @@ export { default as OpenGraphTags } from './components/open-graph-tags.astro';
 export { default as OpenGraphVideoEpisodeTags } from './components/open-graph-video-episode-tags.astro';
 export { default as SEOTags } from './components/seo-tags.astro';
 export { default as TwitterTags } from './components/twitter-tags.astro';
+export { default as OpenGraphVideoMovieTags } from './components/open-graph-video-movie-tags.astro';
 
 const OpenGraphVideoTVShowTags = OpenGraphVideoMovieTags;
 const OpenGraphVideoOtherTags = OpenGraphVideoMovieTags;
 
 export {
-  OpenGraphVideoMovieTags,
   OpenGraphVideoTVShowTags,
   OpenGraphVideoOtherTags,
 };

@@ -1,14 +1,15 @@
-import stylistic from './eslint-config/stylistic.mjs';
-import astro from './eslint-config/astro.mjs';
+import { defineFlatConfig } from '@thinkbuff/eslint-config';
 
 /**
  * @type {import('eslint').Linter.FlatConfig[]}
  */
-export default [
+export default defineFlatConfig(
   {
-    // global ignores
-    ignores: ['dist/*', 'build/*'],
+    astro: true,
   },
-  ...stylistic,
-  ...astro,
-];
+  {
+    rules: {
+      'unicorn/prevent-abbreviations': 'off',
+    },
+  },
+);

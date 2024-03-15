@@ -1,10 +1,11 @@
 ---
-import { generatePageTitle, generateRobotsContent } from '../../utils';
 import type { SEOProps } from '../../types';
+import { generatePageTitle, generateRobotsContent } from '../../utils';
+
+import ExtendedLinkTag from './extended-link-tag.astro';
+import ExtendedMetaTag from './extended-meta-tag.astro';
 import OpenGraphTags from './open-graph-tags.astro';
 import TwitterTags from './twitter-tags.astro';
-import ExtendedMetaTag from './extended-meta-tag.astro';
-import ExtendedLinkTag from './extended-link-tag.astro';
 
 export type Props = SEOProps;
 
