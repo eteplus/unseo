@@ -1,15 +1,7 @@
-import { defineFlatConfig } from '@thinkbuff/eslint-config';
+import { defineFlatConfigAsync } from '@thinkbuff/eslint-config';
 
-/**
- * @type {import('eslint').Linter.FlatConfig[]}
- */
-export default defineFlatConfig(
-  {
-    astro: true,
+export default defineFlatConfigAsync({
+  astro: {
+    a11y: 'recommended',
   },
-  {
-    rules: {
-      'unicorn/prevent-abbreviations': 'off',
-    },
-  },
-);
+});

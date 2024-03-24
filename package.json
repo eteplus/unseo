@@ -49,19 +49,19 @@
     "type": "git",
     "url": "git+https://github.com/eteplus/unseo.git"
   },
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "engines": {
-    "node": ">=18"
+    "node": ">=18.12"
   },
   "devDependencies": {
-    "@thinkbuff/eslint-config": "^0.0.2",
-    "@types/node": "^20.11.27",
-    "astro": "^4.5.4",
+    "@thinkbuff/eslint-config": "^0.1.0",
+    "@types/node": "^20.11.30",
+    "astro": "^4.5.9",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
-    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-astro": "^0.32.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.3",
     "unbuild": "^2.0.0"
   },
   "license": "MIT"
